@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: frontend-depl
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: todo-frontend
+  template:
+    metadata:
+      labels:
+        app: todo-frontend
+    spec:
+      restartPolicy: Always
+      containers:
+      - name: frontend-depl
+        image: darnattp/basic-k8s-todo-client:latest
+        # resources:
+        #   limits:
+        #     memory: "32Mi"
+        #     cpu: "10m"
+        ports:
+        - containerPort: 80
+
