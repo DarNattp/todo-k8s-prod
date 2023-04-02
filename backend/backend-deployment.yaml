@@ -16,10 +16,10 @@ spec:
       containers:
       - name: backend-depl
         image: darnattp/basic-k8s-todo-server:latest
-        # resources:
-        #   limits:
-        #     memory: "32Mi"
-        #     cpu: "20m"
+       resources:
+          limits:
+            memory: "32Mi"
+            cpu: "20m" 
         ports:
         - containerPort: 5050
         envFrom:
@@ -27,17 +27,17 @@ spec:
               name: todo-app-configmap
           - secretRef:
               name: todo-app-secret
-      # tolerations:
-      # - key: "kubernetes.io/arch"
-      #   operator: "Equal"
-      #   value: "arm64"
-      #   effect: "NoSchedule"
-      # affinity:
-      #   nodeAffinity:
-      #     requiredDuringSchedulingIgnoredDuringExecution:
-      #       nodeSelectorTerms:
-      #       - matchExpressions:
-      #         - key: cloud.google.com/gke-nodepool
-      #           operator: In
-      #           values:
-      #           - arm64-pool    
+      tolerations:
+      - key: "kubernetes.io/arch"
+        operator: "Equal"
+        value: "arm64"
+        effect: "NoSchedule"
+      affinity:
+        nodeAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            nodeSelectorTerms:
+            - matchExpressions:
+              - key: cloud.google.com/gke-nodepool
+                operator: In
+                values:
+                - arm64-pool    
