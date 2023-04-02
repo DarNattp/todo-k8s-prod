@@ -16,7 +16,7 @@ spec:
       containers:
       - name: backend-depl
         image: darnattp/basic-k8s-todo-server:1
-       resources:
+        resources:
           limits:
             memory: "32Mi"
             cpu: "20m" 
