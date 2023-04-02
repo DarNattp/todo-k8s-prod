@@ -27,3 +27,17 @@ spec:
               name: todo-app-configmap
           - secretRef:
               name: todo-app-secret
+      # tolerations:
+      # - key: "kubernetes.io/arch"
+      #   operator: "Equal"
+      #   value: "arm64"
+      #   effect: "NoSchedule"
+      # affinity:
+      #   nodeAffinity:
+      #     requiredDuringSchedulingIgnoredDuringExecution:
+      #       nodeSelectorTerms:
+      #       - matchExpressions:
+      #         - key: cloud.google.com/gke-nodepool
+      #           operator: In
+      #           values:
+      #           - arm64-pool    
