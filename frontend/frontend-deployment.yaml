@@ -15,7 +15,7 @@ spec:
       restartPolicy: Always
       containers:
       - name: frontend-depl
-        image: darnattp/basic-k8s-todo-client:latest
+        image: darnattp/basic-k8s-todo-client:5
         resources:
           limits:
             memory: "32Mi"
